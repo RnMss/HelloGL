@@ -1,9 +1,9 @@
-LIBS += -L/usr/local/lib/ -L/opt/X11/lib/
-INCLUDES += -I/usr/local/include/ -I/opt/X11/include/
+LIBS += -L/usr/local/lib/
+INCLUDES += -I/usr/local/include/
 LDFLAGS += -lglfw3
 CPPFLAGS += -fdiagnostics-color=auto -std=c++11 -g
 FRAMEWORKS = -framework OpenGL -framework Cocoa -framework IOKit
-CXX = clang++
+CXX = g++-4.9
 
 hello: main.cpp Main.hpp gen/fs1.c gen/vs1.c
 	$(CXX) -o hello $(CPPFLAGS) $(FRAMEWORKS) $(INCLUDES) $(LIBS) main.cpp $(LDFLAGS)

@@ -1,5 +1,5 @@
 #include <GLFW/glfw3.h>
-#include <GL/glu.h>
+#include <OpenGL/glu.h>
 #include <unistd.h>
 #include <cstdio>
 #include <cstdlib>
@@ -156,9 +156,13 @@ void reportGl(GLFWwindow* window) {
     fprintf(stderr, "OpenGL API: %d.%d\n", v0, v1);
 }
 
-int main() {
+int main(int argc, char** argv) {
 
     if (!glfwInit()) { return -1; }
+
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
     GLFWwindow* window = 
         glfwCreateWindow( 640, 480
